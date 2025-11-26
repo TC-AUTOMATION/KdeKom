@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>font-face generator</title>
+
+  <link rel=dns-prefetch href="//ajax.googleapis.com">
+  <link rel=dns-prefetch href="//stats.g.doubleclick.net">
+  <link rel=dns-prefetch href="//maxcdn.bootstrapcdn.com">
+  <link rel=dns-prefetch href="//a.disquscdn.com">
+  <link rel=dns-prefetch href="//disqus.com">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="msvalidate.01" content="862295C6F21EB0467870986498893633" />
+  
+  <meta name="description" content="Convert  font files to @font-face kit to use in your web pages. @font-face kit will include eot, ttf, woff and svg files to ensure maximum cross browser typography support." />
+  <meta name="keywords" content="font-face generator,@font-face, to , convert  to  ,,,@font-face kit,web fonts,use fonts in webpage" />
+
+  <meta name="application-name" content="Everything Fonts" />
+  <meta name="author" content="orthosie.com" />
+  <meta name="robots" content="All" />
+  <meta name="rating" content="General" />
+  <meta name="dcterms.title" content="font-face generator" />
+  <meta name="dcterms.creator" content="orthosie.com" />
+  <meta name="dcterms.publisher" content="orthosie.com" />
+  <meta name="dcterms.description" content="Convert  font files to @font-face kit to use in your web pages. @font-face kit will include eot, ttf, woff and svg files to ensure maximum cross browser typography support." />
+  <meta name="dcterms.rights" content="everythingfonts.com © 2014-16">
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="font-face generator" />
+  <meta property="og:description" content="Convert  font files to @font-face kit to use in your web pages. @font-face kit will include eot, ttf, woff and svg files to ensure maximum cross browser typography support." />
+  <meta property="twitter:title" content="font-face generator" />
+  <meta property="twitter:description" content="Convert  font files to @font-face kit to use in your web pages. @font-face kit will include eot, ttf, woff and svg files to ensure maximum cross browser typography support." />
+  <meta name="generator" content="Orthosie META Tag Generator: http://toolswebtop.com/seo/metatag" />
+
+  <link rel=preload href="/font/face/P0sSgiiaKWEvB8jTj1mTpweF" as=style crossorigin=anonymous>
+  <link rel="preload" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" as=style>
+  <link rel="preload" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css" as=style>
+  <link rel="preload" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" as="style">
+  <link rel="preload" href="/css/site.css?v2.1" as="style">
+
+  <link rel="stylesheet" media="screen" href="/font/face/P0sSgiiaKWEvB8jTj1mTpweF" type="text/css"/>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css"  rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"  rel="stylesheet">
+  <link href="/css/site.css?v2.3" rel="stylesheet">
+  <link href="/css/animate.min.css" rel="stylesheet">
+
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PD84W2S');</script>
+<!-- End Google Tag Manager -->
+
+  <!-- icons -->
+  <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4658013134207481",
+    enable_page_level_ads: true
+  });
+</script>
+<style> .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; } .toggle.ios .toggle-handle { border-radius: 20px; } </style>
+</head>
+<body>   
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD84W2S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav id="efnav" class="navbar yamm navbar-static-top navbar-inverse" >
+ <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-id">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand"><img class="img " src="/images/folder_fonts.png" style="display: inline-block" height="25" width="25" alt="Everything Fonts" /> Everything Fonts</a>
+    </div>
+
+   <div class="collapse navbar-collapse" id="navbar-collapse-id">
+     <ul class="nav navbar-nav">
+              <li class="dropdown"><a href="/" data-toggle="dropdown" class="dropdown-toggle">Home <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="yamm-content">
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="thumbnail showcase"><img height="128" width="128" src="/images/folder_fonts.png" alt="Everything Fonts">
+                            <div class="caption">
+                              <h3>Welcome!</h3>
+				<p>
+				Welcome !
+
+				Hi and welcome here! Interested in Typography or have some font related work to do? You have come to the perfect place.
+
+				If our tools can't do what you are looking for, try our APIs, to integrate into your workflow. 
+
+                              </p>
+                              <p><a href="/api/convert#" class="btn btn-success">Font Conversion API</a> </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="thumbnail showcase"><img alt="cross-platform" src="/images/Apps-kde-windows-icon.png">
+                            <div class="caption">
+                              <h3>Cross Platform</h3>
+                              <p>Take the guess work out of the font tools. Use our tools right here from your browser on Linux / Windows / Mac OSX or any other platform that supports a decent browser. And best of all they are free!</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="thumbnail showcase"><img alt="font-face" src="/images/Fonts-Folder-icon.png">
+                            <div class="caption">
+                              <h3>Best @font-face Generator</h3>
+                              <p>The @font-face CSS at-rule allows authors to specify online fonts to display text on their web pages. Find out how you can make your fonts work in all the standard browsers.</p>
+                              <p><a href="/font-face#" class="btn btn-success" title="font-face generator">@font-face generator</a> </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+            </li>
+            <li> 
+               <a href="#" data-toggle="dropdown" class="dropdown-toggle">Font Conversion <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">ttf conversions</a>
+                         <ul class="dropdown-menu">
+				 <li><a tabindex="-1" href="/ttf-to-eot" title="ttf2eot - ttf to eot converter">ttf to eot</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-otf" title="ttf2otf - ttf to otf converter">ttf to otf</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-woff" title="ttf2woff - ttf to woff converter">ttf to woff</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-woff2" title="ttf2woff2 - ttf to woff2 converter">ttf to woff2</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-svg" title="ttf2svg - ttf to svg converter">ttf to svg</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-ufo" title="ttf2ufo - ttf to ufo (United Font Object)  converter">ttf to ufo </a></li>
+				 <li><a tabindex="-1" href="/ttf-to-ufm" title="ttf2ufm - ttf to ufm converter">ttf to ufm <span class="badge alert-danger">new</span></a></li>
+				 <li><a tabindex="-1" href="/ttf-to-sfd" title="ttf2sfd - ttf to sfd converter">ttf to sfd</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-afm" title="ttf2afm - ttf to afm converter">ttf to afm</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-pfm" title="ttf2pfm - ttf to pfm converter">ttf to pfm<span class="badge alert-danger">new</span></a></li>
+				 <li><a tabindex="-1" href="/ttf-to-pfa" title="ttf2pfa - ttf to pfa converter">ttf to pfa</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-pfb" title="ttf2pfb - ttf to pfb converter">ttf to pfb</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-ps" title="ttf2ps - ttf to ps converter">ttf to ps</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-pt1" title="ttf2pt1 - ttf to pt1 converter">ttf to pt1</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-pt3" title="ttf2pt3 - ttf to pt3 converter">ttf to pt3</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-t42" title="ttf2t42 - ttf to t42 converter">ttf to t42</a></li>
+				 <li><a tabindex="-1" href="/ttf-to-apk" title="ttf2apk - ttf to apk converter">ttf to apk</a></li>
+			 </ul>   
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">otf conversions</a>
+                       <ul class="dropdown-menu">
+			       <li><a tabindex="-1" href="/otf-to-eot" title="otf2eot - otf to eot converter">otf to eot</a></li>
+			       <li><a tabindex="-1" href="/otf-to-ttf" title="otf2ttf - otf to ttf converter">otf to ttf</a></li>
+			       <li><a tabindex="-1" href="/otf-to-woff" title="otf2woff - otf to woff converter">otf to woff</a></li>
+			       <li><a tabindex="-1" href="/otf-to-woff2" title="otf2woff2 - otf to woff 2.0 converter">otf to woff2 <span class="badge alert-danger">new</span></a></li>
+			       <li><a tabindex="-1" href="/otf-to-svg" title="otf2svg - otf to svg converter">otf to svg</a></li>
+			       <li><a tabindex="-1" href="/otf-to-sfd" title="otf2sfd - otf to sfd converter">otf to sfd</a></li>
+				 <li><a tabindex="-1" href="/otf-to-ufo" title="otf2ufo - otf to ufo (United Font Object)  converter">otf to ufo <span class="badge alert-danger">new</span></a></li>
+			       <li><a tabindex="-1" href="/otf-to-afm" title="otf2afm - otf to afm converter">otf to afm</a></li>
+				 <li><a tabindex="-1" href="/otf-to-ufm" title="otf2ufm - otf to ufm converter">otf to ufm <span class="badge alert-danger">new</span></a></li>
+			       <li><a tabindex="-1" href="/otf-to-pfa" title="otf2pfa - otf to pfa converter">otf to pfa</a></li>
+			       <li><a tabindex="-1" href="/otf-to-pfm" title="otf2pfm - otf to pfm converter">otf to pfm<span class="badge alert-danger">new</span></a></li>
+			       <li><a tabindex="-1" href="/otf-to-pfb" title="otf2pfb - otf to pfb converter">otf to pfb</a></li>
+			       <li><a tabindex="-1" href="/otf-to-pt1" title="otf2pt1 - otf to pt1 converter">otf to pt1</a></li>
+			       <li><a tabindex="-1" href="/otf-to-pt3" title="otf2pt3 - otf to pt3 converter">otf to pt3</a></li>
+			       <li><a tabindex="-1" href="/otf-to-t42" title="otf to t42 converter">otf to t42</a></li>
+			       <li><a tabindex="-1" href="/otf-to-apk" title="otf2apk - otf to apk converter">otf to apk</a></li>
+		       </ul>   
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">woff conversions</a>
+                       <ul class="dropdown-menu">
+			      <li><a tabindex="-1" href="/woff2-to-ttf" title="woff22ttf - woff2.0 to ttf converter">woff2 to ttf <span class="badge alert-danger">new</span></a></li>
+			      <li><a tabindex="-1" href="/woff2-to-otf" title="woff22otf - woff2.0 to otf converter">woff2 to otf <span class="badge alert-danger">new</span></a></li>
+			      <li><a tabindex="-1" href="/woff-to-ttf" title="woff2ttf - woff to ttf converter">woff to ttf</a></li>
+			      <li><a tabindex="-1" href="/woff-to-woff2" title="woff2woff2- woff to woff2.0 converter">woff to woff2 <span class="badge alert-danger">new</span></a></li>
+			      <li><a tabindex="-1" href="/woff-to-otf" title="woff2otf - woff to otf converter">woff to otf</a></li>
+			      <li><a tabindex="-1" href="/woff-to-svg" title="woff2svg - woff to svg converter">woff to svg</a></li>
+			      <li><a tabindex="-1" href="/woff-to-eot" title="woff to eot converter">woff to eot</a></li>
+			</ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">postscript conversions</a>
+                       <ul class="dropdown-menu">
+			       <li><a tabindex="-1" href="/pfa-to-ttf" title="pfa to ttf converter">pfa to ttf</a></li>
+			       <li><a tabindex="-1" href="/pfb-to-ttf" title="pfb to ttf converter">pfb to ttf</a></li>
+			       <li><a tabindex="-1" href="/pfb-to-otf" title="pfb to otf converter">pfb to otf</a></li>
+			       <li><a tabindex="-1" href="/pfb-to-pfa" title="pfb to pfa converter">pfb to pfa</a></li>
+			       <li><a tabindex="-1" href="/pfb-to-ps" title="pfb to ps converter">pfb to ps</a></li>
+			       <li><a tabindex="-1" href="/pfb-to-afm" title="pfb to afm converter">pfb to afm</a></li>
+			       <li><a tabindex="-1" href="/ps-to-ttf" title="ps font to ttf converter">ps to ttf</a></li>
+			       <li><a tabindex="-1" href="/pt3-to-ttf" title="pt3 to ttf converter">pt3 to ttf</a></li>
+			       <li><a tabindex="-1" href="/t42-to-ttf" title="t42 to ttf converter">t42 to ttf</a></li>
+			 </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">sfd conversions</a>
+                       <ul class="dropdown-menu">
+			       <li><a tabindex="-1" href="/sfd-to-ttf" title="sfd2ttf - sfd to ttf converter">sfd to ttf</a></li>
+			       <li><a tabindex="-1" href="/sfd-to-otf" title="sfd2otf - sfd to otf converter">sfd to otf</a></li>
+			       <li><a tabindex="-1" href="/sfd-to-woff" title="sfd2woff - sfd to woff converter">sfd to woff</a></li>
+			       <li><a tabindex="-1" href="/sfd-to-svg" title="sfd2svg- sfd to svg converter">sfd to svg</a></li>
+				 <li><a tabindex="-1" href="/sfd-to-ufo" title="sfd2ufo - sfd to ufo (United Font Object)  converter">sfd to ufo <span class="badge alert-danger">new</span></a></li>
+			 </ul>
+                </li>
+	        <li><a tabindex="-1" href="/ttc-to-ttf" title="ttc to ttf">ttc-unpack <span class="badge alert-danger">new</span></a></li>
+	        <li><a tabindex="-1" href="/dfont-to-ttf" title="dfont to ttf">dfont to ttf <span class="badge alert-danger">new</span></a></li>
+	        <li><a tabindex="-1" href="/font-face" title="font face generator">font face generator</a></li>
+	        <li><a tabindex="-1" href="/cufon" title="Cufon Generator">Cufon Generator</a></li>
+              </ul>
+            </li>
+            <li> 
+               <a href="#" data-toggle="dropdown" class="dropdown-toggle">Tools <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Font Editing</a>
+                         <ul class="dropdown-menu">
+			       <li><a tabindex="-1" href="/subsetter" title="Font Subsetting Tool">Font Subsetter</a></li>
+			       <li><a tabindex="-1" href="/font-hinter" title="Font Hinting Tool">Font Hinting Tool</a></li>
+			       <li><a tabindex="-1" href="/accenter" title="Add Accented Characters to Font">Font Accents Builder</a></li>
+		        </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Font Info</a>
+                         <ul class="dropdown-menu">
+			       <li><a tabindex="-1" href="/ttfdump" title="ttfdump">ttfdump</a></li>
+			       <li><a tabindex="-1" href="/ttfcoverage" title="ttfcoverage">ttfcoverage</a></li>
+			       <li><a tabindex="-1" href="/pdffonts" title="List the fonts used in the pdf document">pdffonts</a></li>
+		        </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Character Maps</a>
+                       <ul class="dropdown-menu">
+                               <li><a tabindex="-1" href="/unicode/maps" title="Unicode Character Maps">Unicode Char Maps</a></li>
+                               <li><a tabindex="-1" href="/ascii/codes" title="ASCII Character Codes">ASCII Character Codes</a></li>
+		        </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Font Units Conversion</a>
+                       <ul class="dropdown-menu">
+	                       <li><a tabindex="-1" href="/font/tools/units/converter" title="Font Units Converter">Font Units Converter</a></li>
+	                       <li><a tabindex="-1" href="/font/tools/units/px-to-em" title="px2em">px to em Converter</a></li>
+	                       <li><a tabindex="-1" href="/font/tools/units/px-to-inches" title="px2inches">px to inches Converter</a></li>
+	                       <li><a tabindex="-1" href="/font/tools/units/px-to-pt" title="px2pt - px to point Converter">px to pt Converter</a></li>
+	                       <li><a tabindex="-1" href="/font/tools/units/ft-to-px" title="ft2px - ft to px Converter">ft to px Converter</a></li>
+	                       <li><a tabindex="-1" href="/font/tools/units/px-to-mm" title="px2mm">px to mm Converter</a></li>
+	                       <li><a tabindex="-1" href="/font/tools/units/px-to-twip" title="px2twip">px to twip Converter</a></li>
+		        </ul>
+                </li>
+	        <li><a tabindex="-1" href="/font/preview/local" title="Local Fonts Previewer / Comparer">Local Font Previewer <span class="badge alert-danger">new</span></a></li>
+	        <li><a tabindex="-1" href="/font/manager" title="Font Manager">Online Font Manager</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a href="/fonts/#" data-toggle="dropdown" class="dropdown-toggle">Directory <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <!-- Content container to add padding -->
+                  <div class="yamm-content">
+                    <div class="row">
+                      <h3 class="page-header">Fonts Directory</h3>
+                      <div class="col-sm-4 col-md-4">
+                      <ul class="list-unstyled">
+                    <li><a href="/fonts/tag/free-commercial" title="Free fonts for commercial Use">Free Commercial</a></li>
+                    <li><a href="/fonts/tag/adobe" title="Fonts designed by Adobe">Adobe</a></li>
+                    <li><a href="/fonts/tag/stix-fonts" title="STIX Fonts">STIX Fonts</a></li>
+                       </ul>
+                      </div><!--col-->
+                      <div class="col-sm-4 col-md-4">
+                          <ul class="list-unstyled">
+                    <li><a href="/fonts/tag/cursive" title="Cursive Fonts">Cursive</a></li>
+                    <li><a href="/fonts/tag/handwriting" title="Handwriting Fonts">Handwritten</a></li>
+                    <li><a href="/fonts/tag/fell-types" title="Fell Types">Fell Types</a></li>
+                          </ul>
+                      </div><!--col-->
+                      <div class="col-sm-4 col-md-4">
+                          <ul class="list-unstyled">
+                    <li><a href="/fonts/tag/gnu" title="GNU Fonts">GNU Fonts</a></li>
+                    <li><a href="/fonts/tag/free" title="Free fonts">Free</a></li>
+                    <li><a href="/fonts/#" title="Fonts Directory">More...</a></li>
+                          </ul>
+                      </div><!--col-->
+                    </div><!--row-->
+                  </div><!--yamm-content-->
+                </li>
+              </ul>
+            </li>
+            <li> 
+               <a href="#" data-toggle="dropdown" class="dropdown-toggle">API's<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+	        <li><a tabindex="-1" href="/api/font" title="Font API">Font API</a></li>
+	        <li><a tabindex="-1" href="/api/convert" title="Font Conversion API">Font Conversion API</a></li>
+	        <li><a tabindex="-1" href="/api/ffgen" title="font-face generation API">@font-face generation API</a></li>
+			       <li><a tabindex="-1" href="/api/hinting" title="Font Hinting API">Font Hinting REST API</a></li>
+			       <li><a tabindex="-1" href="/api/subset" title="Font Subsettin API">Font Subsetting REST API</a></li>
+              </ul>
+            </li>
+      <li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b> </a>
+	      <ul class="dropdown-menu">
+		<li><a href="/contactus#"> <span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+		<li><a href="/privacy"> <span class="glyphicon glyphicon-envelope"></span> Privacy</a></li>
+		<li><a href="/terms"> <span class="glyphicon glyphicon-envelope"></span> Terms</a></li>
+	      </ul>
+	    </li>
+            <!--li class="dropdown"><a href="/marketplace/#" data-toggle="dropdown" class="dropdown-toggle">Marketplace <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="yamm-content">
+                    <div class="row">
+                          <div class="thumbnail showcase"><img alt="font-works" src="/images/fontworks.png">
+                            <div class="caption">
+                              <h3>Font Marketplace</h3>
+                               <p>Have a font related work and don't know how to do it or don't have time for it? Post your job here and get it done. </p>
+                              <a href="/marketplace/#" class="btn btn-success">marketplace</a>
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li-->
+     </ul>
+      <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown ">
+               <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-search"></span><b class="caret"></b></a>
+                <ul class="dropdown-menu ">
+                  <li>
+                    <div class="yamm-content">
+                      <div class="row">
+                        <div class="col-sm-12">
+					  <form class="form form-horizontal" action="/search" role="search">
+					     <div class="input-group">
+						  <input type="text" class="search-query form-control input-lg" placeholder="Search Everything Fonts..." name="q" value="" id="q"/> 
+						  <div class="input-group-btn">
+						     <button class="btn btn-lg btn-success" type="submit" >Search</button>
+						  </div>
+					     </div>
+					  </form>
+                         </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+            </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+                        <li><a href="/register#"> <span class="glyphicon glyphicon-edit"></span> Register</a></li>
+            <li><a href="/login#"> <span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                      </ul>
+        </li>
+      </ul>
+ </div>
+</div>
+</nav>
+<div class="topheader">
+     <h1 class="title"><span class="fa fa-cloud-download">&nbsp; font-face generator</h1>
+     <div class="animated slideInRight bread-crumbs text-right">Home / Tools / Conversion / webfont</div>
+</div>
+<div class="container-fluid">
+         <div class="row">
+  <div class="col-md-8 col-sm-8 col-lg-8 eqcol">
+   <div class="tools-panel">
+	<div class="tools-heading">
+		      <h3 class="tools-title"><span class="text-info">@font-face</span></h3>
+		      <p><small class="text-muted"><i class="glyphicon glyphicon-hand-right"></i> The fastest, easiest and the simplest @font-face generator in the world. Convert your fonts to webfonts in a blink.</small></p>
+       </div>
+    <p>The @font-face CSS at-rule allows authors to specify online fonts to display text on their web pages. By allowing authors to provide their own fonts, @font-face eliminates the need to depend on the limited number of fonts users have installed on their computers. Unfortunately different browsers understand differnt font types.  This service allows you to generate css rule and font files that makes your font work in all the browsers that support font-face or webfonts.</p>
+	       <div class="ads head-room foot-room">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- EF Font Display 468x15 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:15px"
+     data-ad-client="ca-pub-4658013134207481"
+     data-ad-slot="4052790204"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+	       </div>
+    <form enctype='multipart/form-data' method='post'>
+       <div id="sourcelabel">
+            <label for='source_file'> Upload any  file to convert to webfonts (@font-face css) use. The converted font-face files (ttf,eot,woff,svg and the css)  will be available to save locally on your computer immediately.  </label>
+       </div>
+       <div id="eula" class="leg-room">
+       <label for="ipermission" class="important">
+             The EULAs of the font allow Web Embedding (without <a target="_blank" href="http://www.adobe.com/products/flashplayer/" class="external">Adobe Flash</a>): <input type="checkbox" name="permission" id="ipermission" value="yes" data-style="ios"  data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" /> 
+        </label>
+       </div>
+	          <div id="errorContainer"></div>
+      <input type="file" name="fontfile" id="file-upload" class="file leg-room">
+   	    </form>
+  <div class="row ads hide-overflow text-center head-room">
+        		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- EF font-face generator 728x90 -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:728px;height:90px"
+		     data-ad-client="ca-pub-4658013134207481"
+		     data-ad-slot="5686777404"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+          </div>
+ <div class="fonttabs"> 
+  <h3>@font-face</h3> 
+  <ul class="nav nav-tabs"> 
+    <li class="active"><a href="#idTab1" data-toggle="tab">Sample</a></li> 
+    <li><a href="#idTab2" data-toggle="tab">Syntax</a></li> 
+    <li><a href="#idTab3" data-toggle="tab">Browser Compatibility</a></li> 
+    <li><a href="#idTab4" data-toggle="tab">Reference</a></li> 
+  </ul> 
+  <div class="tab-content">
+  <div id="idTab1" class="tab-pane fade in active">
+<pre class="pre pre-x-scrollable pre-scrollable head-room">&lt;html&gt;
+&lt;head&gt;
+ &lt;style type="text/css" &gt;
+   @font-face {
+    font-family: 'Sri-TSCRegular';
+    src: url('sri-tsc-webfont.eot');
+    src: url('sri-tsc-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sri-tsc-webfont.woff') format('woff'),
+         url('sri-tsc-webfont.ttf') format('truetype'),
+         url('sri-tsc-webfont.svg#Sri-TSCRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+   }
+   body { font-family: "Sri-TSCRegular", serif }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  This is Sri-TSCRegular.
+&lt;/body&gt;
+&lt;/html&gt;
+  </pre> 
+  </div> 
+  <div id="idTab2" class="tab-pane fade">
+<pre class="pre pre-x-scrollable pre-scrollable head-room">@font-face {
+  [font-family: &lt;family-name&gt;;]?
+  [src: [ &lt;uri&gt; [format(&lt;string&gt;#)]? | &lt;font-face-name&gt; ]#;]?
+  [unicode-range: &lt;urange&gt;#;]?
+  [font-variant: &lt;font-variant&gt;;]?
+  [font-feature-settings: normal|&lt;feature-tag-value&gt;#;]?
+  [font-stretch: &lt;font-stretch&gt;;]?
+  [font-weight: &lt;weight&gt;];
+  [font-style: &lt;style&gt;];
+}
+</pre>
+  </div> 
+  <div id="idTab3" class="tab-pane fade">
+   <div class="table-responsive head-room">
+   <table class="table table-striped table-condensed table-hover">
+    <tr>  <th>Internet Explorer(all)</th><th>Safari(3.2+)</th><th>iPhone(3.1)</th><th>Chrome(all)</th><th>Firefox(3.5+)</th><th>Opera</th>
+    </tr>
+    <tr>
+       <td>EOT</td>
+       <td>TTF / OTF</td>
+       <td>SVG</td>
+       <td>SVG / TTF / OTF</td>
+       <td>TTF / OTF / WOFF</td>
+       <td>TTF / OTF </td>
+    </tr>
+   </table>
+   </div> 
+  </div> 
+  <div id="idTab4" class="tab-pane fade">
+    <ul class="head-room">
+     <li><a href="http://www.w3.org/TR/WOFF/">WOFF Specification 1.0</a></li>
+     <li><a href="http://www.w3.org/TR/WOFF2/">WOFF Specification 2.0</a></li>
+     <li><a href="http://dev.w3.org/csswg/css3-fonts/#font-face-rule">CSS Fonts Module Level 3</a></li>
+     <li><a href="http://msdn.microsoft.com/en-us/library/ms530757(VS.85).aspx">MSDN font-face Reference</a></li>
+    </ul>
+  </div> 
+  
+  </div><!--tab-content-->
+</div><!--idTabs-->
+	    <ul class="tags pull-right">
+                                           <li><a href="/tags/@font-face/tools#" title="@font-face">@font-face</a></li>
+                                           <li><a href="/tags/conversion/tools#" title="conversion">conversion</a></li>
+                                           <li><a href="/tags/css/tools#" title="css">css</a></li>
+                                           <li><a href="/tags/svg/tools#" title="svg">svg</a></li>
+                                           <li><a href="/tags/tools/tools#" title="tools">tools</a></li>
+                                           <li><a href="/tags/ttf/tools#" title="ttf">ttf</a></li>
+                                           <li><a href="/tags/webfont/tools#" title="webfont">webfont</a></li>
+                                           <li><a href="/tags/woff/tools#" title="woff">woff</a></li>
+                                           <li><a href="/tags/woff-2.0/tools#" title="woff-2.0">woff-2.0</a></li>
+                                           <li><a href="/tags/woff2/tools#" title="woff2">woff2</a></li>
+                              </ul>
+            <div class="clearfix"></div>
+  <div class="row ads hide-overflow text-center head-room">
+          </div>
+
+    </div> <!--tools-panel-->
+   </div> <!--col-->
+           <div class="col-md-4 col-sm-4 col-lg-4 eqcol">
+	<div class="ads-panel text-center">
+            <div class="animated slideInLeft callout-dark head-room elbow-room fade-in-b">
+               <h2>Upgrade your experience </h2>
+                           <a href="/tools_upgrade" class="btn btn-lg btn-warning" title="Upgrade">Upgrade</a>
+                           <p>Currently your file size limit is 0.4 MB. For verified users the limit is 2 MB. For unregistered guest users the limit is 0.4 MB. For unverified registered users the limit is 0.5MB. If you want more than these size limits consider upgrading your file size.</p>
+            </div>
+	<div class="head-room">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- EF Fonts ff 300x600 -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:300px;height:600px"
+		     data-ad-client="ca-pub-4658013134207481"
+		     data-ad-slot="2112561805"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+       </div>
+	</div><!--ads-panel-->
+   </div> <!--col-->
+          </div> <!--row-->
+</div> <!--container-->
+
+<div id="bottom" class="bottom">
+ <div class="container">
+   <div class="row">
+     <div class="col-md-4 col-lg-4 col-xs-12 col-sm-6">
+        <h3>Tools</h3>
+        <ul class="list">
+             <li><span class="fa fa-cogs">&nbsp;</span> <a href="/font-face" title="font-face generator">@font-face</a></li>
+             <li><span class="fa fa-refresh">&nbsp;</span> <a href="/font/tools/units/converter" title="Units Converter">Units Converter</a></li>
+             <li><span class="fa fa-pencil">&nbsp;</span> <a href="/font-hinter" title="Font Hinter">Font Hinter</a></li>
+             <li><span class="fa fa-filter">&nbsp;</span> <a href="/subsetter" title="Font Subsetter">Font Subsetter</a></li>
+        </ul>
+      </div> 
+      <div class="col-md-4 col-lg-4 col-xs-12 col-sm-6">
+        <h3>API</h3>
+        <ul class="list">
+	     <li><span class="fa fa-map-marker"></span>&nbsp; <a href="/api/font" title="Font API">Font API</a></li>
+	     <li><span class="fa fa-retweet"></span>&nbsp; <a href="/api/convert" title="Font Conversion API">Font Conversion</a></li>
+             <li><span class="fa fa-cloud"></span>&nbsp; <a href="/api/ffgen" title="@font-face Generation API">font-face Generation API</a></li>
+             <li><span class="fa fa-paint-brush">&nbsp; </span> <a href="/api/hinting" title="Font Hinting API">Font Hinting API</a></li>
+             <li><span class="fa fa-sliders">&nbsp;</span> <a href="/api/subset" title="Font Subsetting API">Font Subsetting API</a></li>
+        </ul>
+      </div> 
+      <div class="col-md-4 col-lg-4 col-xs-12 col-sm-6">
+        <h3>Social</h3>
+        <ul class="list">
+	     <li><span class="fa fa-facebook"></span> <a href="https://www.facebook.com/everythingfonts" title="Facebook">Facebook</a></li>
+             <li><span class="fa fa-twitter"></span> <a href="https://twitter.com/everythingfonts" title="Twitter">Twitter</a></li>
+        </ul>
+      </div> 
+   </div> 
+ </div> <!--container-->
+</div> 
+<footer>
+<div class="container">
+   <div class="row text-center">
+	   <div class="fa text-center leg-room">
+		     <a class="btn btn-default btn-social btn-circle" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Feverythingfonts.com/font-face"><i class="fa-facebook fa-lg"></i></a>
+		     <a class="btn btn-default btn-social btn-circle" href="https://twitter.com/share?url=https%3A%2F%2Feverythingfonts.com/font-face"><i class="fa-twitter fa-lg"></i></a>
+		      <a class="btn btn-default btn-social btn-circle" href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Feverythingfonts.com/font-face"><i class="fa-linkedin fa-lg"></i></a>
+		      <a class="btn btn-default btn-social btn-circle" href="https://plus.google.com/share?url=https%3A%2F%2Feverythingfonts.com/font-face"><i class="fa-google-plus fa-lg"></i></a>
+		      <!--a class="btn btn-default btn-social btn-circle" href="mailto:?subject=Everything%20Fonts%26body=https%3A%2F%2Feverythingfonts.com/font-face"><i class="fa-envelope-o fa-lg"></i></a-->
+	  </div>
+   </div>
+   <div class="row text-center">
+     <small class="text-muted text-center">Copyright © 2013-2014 - <a class="footerlink" title="Everything Fonts" href="/">everythingfonts.com</a> - All rights reserved. </small>
+   </div>
+   <div class="row text-center">
+     <a href="http://orthosie.com" title="Web site designed by Orthosie"><img src="/branding/orthosie.gif" height="20" width="50" class="orthosie" title="Designed by Orthosie" alt="Designed by Orthosie"/></a>
+   </div>
+</div>
+</footer>
+  <!--script src="/js/jquery-1.11.0.min.js"></script-->
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+  <script>
+    $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+        // Avoid following the href location when clicking
+        event.preventDefault(); 
+        // Avoid having the menu to close when clicking
+        event.stopPropagation(); 
+        // If a menu is already open we close it
+        $('ul.dropdown-menu [data-toggle=dropdown]').parent().removeClass('open');
+        // opening the one you clicked on
+        $(this).parent().addClass('open');
+    });
+  </script>
+
+<script src="/js/grids.js"></script>
+<script>
+jQuery(function($) {
+  $('.eqcol').responsiveEqualHeightGrid();	
+});
+</script>
+<script src="/js/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "showLink": false
+})});
+</script>
+
+   <script src="/js/fileinput.js?v4"></script>
+<script>
+/* Initialize your widget via javascript as follows */
+$("#file-upload").fileinput({
+browseClass: "btn btn-info",
+showPreview: false,
+elErrorContainer: '#errorContainer',
+browseLabel: "Pick Font File",
+maxFileSize: 0,
+allowedFileExtensions: ["ttf","TTF", "Ttf","otf","OTF","Otf","pfa","PFA","pfb","PFB","woff","WOFF","sfd","SFD"],
+showCaption: true,
+autoFitCaption: true,
+initialCaption: true,
+browseIcon: '<i class="glyphicon glyphicon-hand-right"></i> ',
+removeClass: "btn btn-danger",
+removeLabel: "Delete",
+removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+uploadClass: "btn btn-success",
+uploadLabel: "Convert",
+mainClass: "input-group-lg",
+uploadIcon: '<i class="glyphicon glyphicon-upload"></i> ',
+});
+</script>
+<script>
+  $('form').submit(function(event){
+        if ( this.permission.checked == false ) 
+        {
+            event.preventDefault();
+            alert('You must indicate that your font EULA allow font embedding');
+            return false;
+        } 
+        return true;
+   });
+</script>
+<script src="/js/bootstrap-toggle.min.js"></script>
+
+</body>   
+</html>

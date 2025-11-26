@@ -1,53 +1,102 @@
 import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/shadcn/button';
+import { Input } from '@/components/ui/shadcn/input';
+import { Label } from '@/components/ui/shadcn/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { fetchClients, fetchPersons, createMission } from '@/lib/api';
+} from '@/components/ui/shadcn/select';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/shadcn/card';
+import { Separator } from '@/components/ui/shadcn/separator';
+import { fetchClients, fetchApporteurs, fetchCollaborateurs, createMission } from '@/lib/api';
 import { formatCurrency } from '@/lib/utils';
+
+const moisList = [
+  'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+  'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
+];
 
 export function MissionForm({ onSuccess }: { onSuccess: () => void }) {
   const [clients, setClients] = useState<any[]>([]);
-  const [persons, setPersons] = useState<any[]>([]);
+  const [apporteurs, setApporteurs] = useState<any[]>([]);
+  const [collaborateurs, setCollaborateurs] = useState<any[]>([]);
+
+  const currentYear = new Date().getFullYear();
+  const currentMonth = moisList[new Date().getMonth()];
 
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    month: new Date().toISOString().slice(0, 7),
-    client_id: '',
-    apporteur_id: '',
-    amount_billed: 0,
-    initial_fees: 1500,
-    agency_fees: 2350,
-    fixed_fees: 0,
-    management_fees: 1200,
-    ml_amount: 800,
-    lt_amount: 400,
-    apporteur_commission: 0,
-    fred_percentage: 30,
-    eric_percentage: 40,
-    boom_percentage: 20,
-    other_percentage: 10,
-    distributions: [] as { person_id: string; percentage: number }[]
+    nom_mission: '',
+    mois: currentMonth,
+    annee: currentYear,
+    client: '',
+    apporteur: '',
+    ca_genere: 0,
+    pct_sub: 50,
+    pct_client: 50,
+    reduction_base: 0,
+    provision_charges: 0,
+    frais_supp_fred: 0,
+    frais_gestion: 0,
+    frais_ml: 0,
+    frais_lt: 0,
+    commission_apporteur: 0,
+    pct_reliquat: 0,
+    // Parts collaborateurs
+    fred_pct: 0,
+    eric_pct: 0,
+    boom_pct: 0,
+    damien_pct: 0,
+    maitre_pct: 0,
   });
 
   useEffect(() => {
-    fetchClients().then(setClients);
-    fetchPersons().then(setPersons);
+    Promise.all([fetchClients(), fetchApporteurs(), fetchCollaborateurs()]).then(([c, a, col]) => {
+      setClients(c);
+      setApporteurs(a);
+      setCollaborateurs(col);
+    });
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await createMission(formData);
+      // Build parts_collaborateurs array
+      const parts_collaborateurs = [
+        { collaborateur: 'fred', pct: formData.fred_pct, montant: (derivedFields.restantApresApporteur * formData.fred_pct) / 100 },
+        { collaborateur: 'eric', pct: formData.eric_pct, montant: (derivedFields.restantApresApporteur * formData.eric_pct) / 100 },
+        { collaborateur: 'boom', pct: formData.boom_pct, montant: (derivedFields.restantApresApporteur * formData.boom_pct) / 100 },
+        { collaborateur: 'damien', pct: formData.damien_pct, montant: (derivedFields.restantApresApporteur * formData.damien_pct) / 100 },
+        { collaborateur: 'maitre', pct: formData.maitre_pct, montant: (derivedFields.restantApresApporteur * formData.maitre_pct) / 100 },
+      ];
+
+      await createMission({
+        apporteur: formData.apporteur || null,
+        client: formData.client,
+        nom_mission: formData.nom_mission,
+        mois: formData.mois,
+        annee: formData.annee,
+        ca_genere: formData.ca_genere,
+        pct_sub: formData.pct_sub,
+        pct_client: formData.pct_client,
+        montant_sub: derivedFields.montantSub,
+        montant_client: 0, // Starts unpaid
+        reduction_base: formData.reduction_base,
+        base_distribuable: derivedFields.baseDistribuable,
+        provision_charges: formData.provision_charges,
+        frais_supp_fred: formData.frais_supp_fred,
+        frais_gestion: formData.frais_gestion,
+        frais_ml: formData.frais_ml,
+        frais_lt: formData.frais_lt,
+        restant_apres_frais: derivedFields.restantApresFrais,
+        commission_apporteur: formData.commission_apporteur,
+        restant_apres_apporteur: derivedFields.restantApresApporteur,
+        pct_reliquat: formData.pct_reliquat,
+        parts_collaborateurs,
+        reliquat_final: derivedFields.reliquatFinal,
+      });
       onSuccess();
     } catch (error) {
       console.error('Failed to create mission', error);
@@ -61,25 +110,30 @@ export function MissionForm({ onSuccess }: { onSuccess: () => void }) {
     }));
   };
 
-  // Calculations
-  const remainder = formData.amount_billed - formData.initial_fees - formData.agency_fees;
-  const subtotalConsultantFees = formData.ml_amount + formData.lt_amount;
-  const baseForDistribution = remainder - subtotalConsultantFees;
-
-  const totalAllocated = formData.fred_percentage + formData.eric_percentage +
-                         formData.boom_percentage + formData.other_percentage;
-
+  // Calculations based on KDECOM logic
   const derivedFields = {
-    revenu: formData.amount_billed - formData.initial_fees,
-    avantCommission: baseForDistribution,
-    baseRepartition: baseForDistribution,
-    fredPart: (baseForDistribution * formData.fred_percentage) / 100,
-    ericPart: (baseForDistribution * formData.eric_percentage) / 100,
-    boomPart: (baseForDistribution * formData.boom_percentage) / 100,
-    otherPart: (baseForDistribution * formData.other_percentage) / 100,
+    montantSub: (formData.ca_genere * formData.pct_sub) / 100,
+    montantClient: (formData.ca_genere * formData.pct_client) / 100,
+    baseDistribuable: ((formData.ca_genere * formData.pct_sub) / 100) - formData.reduction_base,
+    get totalFrais() {
+      return formData.provision_charges + formData.frais_supp_fred + formData.frais_gestion + formData.frais_ml + formData.frais_lt;
+    },
+    get restantApresFrais() {
+      return this.baseDistribuable - this.totalFrais;
+    },
+    get restantApresApporteur() {
+      return this.restantApresFrais - formData.commission_apporteur;
+    },
+    get totalPctCollabs() {
+      return formData.fred_pct + formData.eric_pct + formData.boom_pct + formData.damien_pct + formData.maitre_pct;
+    },
+    get reliquatFinal() {
+      const totalDistribue = (this.restantApresApporteur * this.totalPctCollabs) / 100;
+      return this.restantApresApporteur - totalDistribue;
+    }
   };
 
-  const apporteurs = persons.filter(p => p.role === 'apporteur');
+  const totalPctCollabs = formData.fred_pct + formData.eric_pct + formData.boom_pct + formData.damien_pct + formData.maitre_pct;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -91,256 +145,271 @@ export function MissionForm({ onSuccess }: { onSuccess: () => void }) {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="apporteur_id">Apporteur</Label>
+              <Label htmlFor="apporteur">Apporteur</Label>
               <Select
-                value={formData.apporteur_id || 'none'}
-                onValueChange={(val) => handleChange('apporteur_id', val === 'none' ? '' : val)}
+                value={formData.apporteur || 'none'}
+                onValueChange={(val) => handleChange('apporteur', val === 'none' ? '' : val)}
               >
-                <SelectTrigger id="apporteur_id">
+                <SelectTrigger id="apporteur">
                   <SelectValue placeholder="Sélectionner Apporteur" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="none">Aucun</SelectItem>
-                  {apporteurs.map(p => (
-                    <SelectItem key={p.id} value={p.id}>{p.name}</SelectItem>
+                  {apporteurs.map(a => (
+                    <SelectItem key={a.id} value={a.id}>{a.nom}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="client_id">Client</Label>
+              <Label htmlFor="client">Client</Label>
               <Select
-                value={formData.client_id}
-                onValueChange={(val) => handleChange('client_id', val)}
+                value={formData.client}
+                onValueChange={(val) => handleChange('client', val)}
               >
-                <SelectTrigger id="client_id">
+                <SelectTrigger id="client">
                   <SelectValue placeholder="Sélectionner Client" />
                 </SelectTrigger>
                 <SelectContent>
                   {clients.map(c => (
-                    <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>
+                    <SelectItem key={c.id} value={c.id}>{c.nom}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="description">Description de la Mission</Label>
-              <textarea
-                id="description"
-                className="w-full min-h-[80px] p-2 border rounded-md bg-background resize-none"
-                placeholder="Implémenter un nouveau système CRM pour l'équipe de vente."
-                value={formData.description}
-                onChange={(e) => handleChange('description', e.target.value)}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="month">Mois</Label>
+              <Label htmlFor="nom_mission">Nom de la Mission</Label>
               <Input
-                id="month"
-                type="month"
-                value={formData.month}
-                onChange={(e) => handleChange('month', e.target.value)}
+                id="nom_mission"
+                placeholder="Ex: Accompagnement RH"
+                value={formData.nom_mission}
+                onChange={(e) => handleChange('nom_mission', e.target.value)}
                 required
               />
             </div>
 
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="mois">Mois</Label>
+                <Select value={formData.mois} onValueChange={(val) => handleChange('mois', val)}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {moisList.map(m => (
+                      <SelectItem key={m} value={m}>{m}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="annee">Année</Label>
+                <Input
+                  id="annee"
+                  type="number"
+                  value={formData.annee}
+                  onChange={(e) => handleChange('annee', Number(e.target.value))}
+                  required
+                />
+              </div>
+            </div>
+
             <div className="space-y-2">
-              <Label htmlFor="amount_billed">Montant Facturé (€)</Label>
+              <Label htmlFor="ca_genere">CA Généré (€)</Label>
               <Input
-                id="amount_billed"
+                id="ca_genere"
                 type="number"
                 step="0.01"
-                value={formData.amount_billed}
-                onChange={(e) => handleChange('amount_billed', Number(e.target.value))}
+                value={formData.ca_genere}
+                onChange={(e) => handleChange('ca_genere', Number(e.target.value))}
                 required
               />
             </div>
-          </CardContent>
-        </Card>
 
-        {/* Financials & Fees */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Financiers & Frais</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="initial_fees">Frais Initiaux (€)</Label>
-              <Input
-                id="initial_fees"
-                type="number"
-                step="0.01"
-                value={formData.initial_fees}
-                onChange={(e) => handleChange('initial_fees', Number(e.target.value))}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="agency_fees">Frais agence (€)</Label>
-              <Input
-                id="agency_fees"
-                type="number"
-                step="0.01"
-                value={formData.agency_fees}
-                onChange={(e) => handleChange('agency_fees', Number(e.target.value))}
-              />
-            </div>
-
-            <Separator />
-
-            <div className="space-y-2">
-              <Label>Frais Sous-Consultants</Label>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="ml_amount" className="text-xs">M (€)</Label>
-                  <Input
-                    id="ml_amount"
-                    type="number"
-                    step="0.01"
-                    value={formData.ml_amount}
-                    onChange={(e) => handleChange('ml_amount', Number(e.target.value))}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="lt_amount" className="text-xs">LT (€)</Label>
-                  <Input
-                    id="lt_amount"
-                    type="number"
-                    step="0.01"
-                    value={formData.lt_amount}
-                    onChange={(e) => handleChange('lt_amount', Number(e.target.value))}
-                  />
-                </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="pct_sub">% SUB (OPCO)</Label>
+                <Input
+                  id="pct_sub"
+                  type="number"
+                  value={formData.pct_sub}
+                  onChange={(e) => handleChange('pct_sub', Number(e.target.value))}
+                />
               </div>
-            </div>
-
-            <Separator />
-
-            <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded-md space-y-2">
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Revenu (€)</span>
-                <span className="font-semibold">{formatCurrency(derivedFields.revenu)}</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Avant commission (€)</span>
-                <span className="font-semibold">{formatCurrency(derivedFields.avantCommission)}</span>
+              <div className="space-y-2">
+                <Label htmlFor="pct_client">% Client</Label>
+                <Input
+                  id="pct_client"
+                  type="number"
+                  value={formData.pct_client}
+                  onChange={(e) => handleChange('pct_client', Number(e.target.value))}
+                />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* Allocation & Calculations */}
+        {/* Frais */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-base">Allocation & Calculs</CardTitle>
+            <CardTitle className="text-base">Frais & Déductions</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label>Pourcentages d'Allocation</Label>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="fred_percentage" className="text-xs">Fred (%)</Label>
-                  <Input
-                    id="fred_percentage"
-                    type="number"
-                    step="1"
-                    min="0"
-                    max="100"
-                    value={formData.fred_percentage}
-                    onChange={(e) => handleChange('fred_percentage', Number(e.target.value))}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="eric_percentage" className="text-xs">Eric (%)</Label>
-                  <Input
-                    id="eric_percentage"
-                    type="number"
-                    step="1"
-                    min="0"
-                    max="100"
-                    value={formData.eric_percentage}
-                    onChange={(e) => handleChange('eric_percentage', Number(e.target.value))}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="boom_percentage" className="text-xs">Boom (%)</Label>
-                  <Input
-                    id="boom_percentage"
-                    type="number"
-                    step="1"
-                    min="0"
-                    max="100"
-                    value={formData.boom_percentage}
-                    onChange={(e) => handleChange('boom_percentage', Number(e.target.value))}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="other_percentage" className="text-xs">Autre (%)</Label>
-                  <Input
-                    id="other_percentage"
-                    type="number"
-                    step="1"
-                    min="0"
-                    max="100"
-                    value={formData.other_percentage}
-                    onChange={(e) => handleChange('other_percentage', Number(e.target.value))}
-                  />
-                </div>
+              <Label htmlFor="reduction_base">Réduction Base (€)</Label>
+              <Input
+                id="reduction_base"
+                type="number"
+                step="0.01"
+                value={formData.reduction_base}
+                onChange={(e) => handleChange('reduction_base', Number(e.target.value))}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="provision_charges">Provision Charges (€)</Label>
+              <Input
+                id="provision_charges"
+                type="number"
+                step="0.01"
+                value={formData.provision_charges}
+                onChange={(e) => handleChange('provision_charges', Number(e.target.value))}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="frais_supp_fred">Frais Supp. Fred (€)</Label>
+              <Input
+                id="frais_supp_fred"
+                type="number"
+                step="0.01"
+                value={formData.frais_supp_fred}
+                onChange={(e) => handleChange('frais_supp_fred', Number(e.target.value))}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="frais_gestion">Frais Gestion (€)</Label>
+              <Input
+                id="frais_gestion"
+                type="number"
+                step="0.01"
+                value={formData.frais_gestion}
+                onChange={(e) => handleChange('frais_gestion', Number(e.target.value))}
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="frais_ml">Frais ML (€)</Label>
+                <Input
+                  id="frais_ml"
+                  type="number"
+                  step="0.01"
+                  value={formData.frais_ml}
+                  onChange={(e) => handleChange('frais_ml', Number(e.target.value))}
+                />
               </div>
-              <div className="text-xs text-center">
-                <span className={totalAllocated === 100 ? 'text-emerald-600' : 'text-destructive'}>
-                  {totalAllocated === 100 ? '✓ Total Allocation: 100% (Valid)' : `⚠ Total: ${totalAllocated}%`}
-                </span>
+              <div className="space-y-2">
+                <Label htmlFor="frais_lt">Frais LT (€)</Label>
+                <Input
+                  id="frais_lt"
+                  type="number"
+                  step="0.01"
+                  value={formData.frais_lt}
+                  onChange={(e) => handleChange('frais_lt', Number(e.target.value))}
+                />
               </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="commission_apporteur">Commission Apporteur (€)</Label>
+              <Input
+                id="commission_apporteur"
+                type="number"
+                step="0.01"
+                value={formData.commission_apporteur}
+                onChange={(e) => handleChange('commission_apporteur', Number(e.target.value))}
+              />
+            </div>
+
+            <Separator />
+
+            <div className="bg-muted p-3 rounded-md space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Montant SUB</span>
+                <span className="font-semibold">{formatCurrency(derivedFields.montantSub)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Base Distribuable</span>
+                <span className="font-semibold">{formatCurrency(derivedFields.baseDistribuable)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Restant après frais</span>
+                <span className="font-semibold">{formatCurrency(derivedFields.restantApresFrais)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Restant après apporteur</span>
+                <span className="font-semibold text-status-success">{formatCurrency(derivedFields.restantApresApporteur)}</span>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Distribution */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base">Répartition Collaborateurs</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="space-y-3">
+              {collaborateurs.map(collab => {
+                const fieldName = `${collab.id}_pct` as keyof typeof formData;
+                const pct = (formData as any)[fieldName] || 0;
+                const montant = (derivedFields.restantApresApporteur * pct) / 100;
+                return (
+                  <div key={collab.id} className="flex items-center gap-3">
+                    <Label className="w-20 text-sm">{collab.nom}</Label>
+                    <Input
+                      type="number"
+                      step="1"
+                      min="0"
+                      max="100"
+                      className="w-20"
+                      value={pct}
+                      onChange={(e) => handleChange(fieldName, Number(e.target.value))}
+                    />
+                    <span className="text-sm text-muted-foreground">%</span>
+                    <span className="text-sm font-mono ml-auto">{formatCurrency(montant)}</span>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="text-center text-sm">
+              <span className={totalPctCollabs <= 100 ? 'text-status-success' : 'text-status-error'}>
+                Total: {totalPctCollabs}%
+              </span>
             </div>
 
             <Separator />
 
             <div className="space-y-2">
-              <Label className="text-sm font-semibold">Champs Dérivés (Auto-Calculés)</Label>
-
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between py-2 px-3 bg-muted rounded-md">
-                  <span className="text-muted-foreground">Revenu (€)</span>
-                  <span className="font-mono">{formatCurrency(derivedFields.revenu)}</span>
-                </div>
-
-                <div className="flex justify-between py-2 px-3 bg-muted rounded-md">
-                  <span className="text-muted-foreground">Avant commission (€)</span>
-                  <span className="font-mono">{formatCurrency(derivedFields.avantCommission)}</span>
-                </div>
-
-                <div className="flex justify-between py-2 px-3 bg-emerald-50 dark:bg-emerald-950/20 rounded-md">
-                  <span className="text-muted-foreground">Base Repartition (€)</span>
-                  <span className="font-mono font-semibold">{formatCurrency(derivedFields.baseRepartition)}</span>
-                </div>
-              </div>
+              <Label htmlFor="pct_reliquat">% Reliquat</Label>
+              <Input
+                id="pct_reliquat"
+                type="number"
+                value={formData.pct_reliquat}
+                onChange={(e) => handleChange('pct_reliquat', Number(e.target.value))}
+              />
             </div>
 
-            <Separator />
-
-            <div className="space-y-2">
-              <Label className="text-sm font-semibold">Répartition Finale</Label>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between py-2 px-3 bg-blue-50 dark:bg-blue-950/20 rounded-md">
-                  <span>Fred Part (€)</span>
-                  <span className="font-mono">{formatCurrency(derivedFields.fredPart)}</span>
-                </div>
-                <div className="flex justify-between py-2 px-3 bg-blue-50 dark:bg-blue-950/20 rounded-md">
-                  <span>Eric Part (€)</span>
-                  <span className="font-mono">{formatCurrency(derivedFields.ericPart)}</span>
-                </div>
-                <div className="flex justify-between py-2 px-3 bg-blue-50 dark:bg-blue-950/20 rounded-md">
-                  <span>Boom Part (€)</span>
-                  <span className="font-mono">{formatCurrency(derivedFields.boomPart)}</span>
-                </div>
-                <div className="flex justify-between py-2 px-3 bg-blue-50 dark:bg-blue-950/20 rounded-md">
-                  <span>Autre Part (€)</span>
-                  <span className="font-mono">{formatCurrency(derivedFields.otherPart)}</span>
-                </div>
+            <div className="bg-status-success/10 p-3 rounded-md">
+              <div className="flex justify-between text-sm">
+                <span className="text-muted-foreground">Reliquat Final</span>
+                <span className="font-bold text-status-success">{formatCurrency(derivedFields.reliquatFinal)}</span>
               </div>
             </div>
           </CardContent>
@@ -352,7 +421,7 @@ export function MissionForm({ onSuccess }: { onSuccess: () => void }) {
         <Button type="button" variant="outline" onClick={onSuccess}>
           Annuler
         </Button>
-        <Button type="submit" disabled={totalAllocated !== 100}>
+        <Button type="submit" disabled={!formData.client || !formData.nom_mission}>
           Enregistrer la Mission
         </Button>
       </div>

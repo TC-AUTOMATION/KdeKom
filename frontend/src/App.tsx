@@ -1,31 +1,45 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AdminLayout } from './components/AdminLayout';
-import AdminDashboard from './pages/admin/Dashboard';
-import AdminMissions from './pages/admin/Missions';
-import AdminRecap from './pages/admin/Recap';
-import AdminContacts from './pages/admin/Contacts';
-import AdminPayouts from './pages/admin/Payouts';
-import PersonDetails from './pages/admin/PersonDetails';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Dashboard from './pages/Dashboard';
+import Missions from './pages/Missions';
+import MissionDetail from './pages/MissionDetail';
+import Clients from './pages/Clients';
+import Consultants from './pages/Consultants';
+import ApporteursDaffaires from './pages/ApporteursDaffaires';
+import Charges from './pages/Charges';
+import Settings from './pages/Settings';
+import NotFound from './pages/NotFound';
+import { SidebarProvider } from './contexts/SidebarContext';
+import { FilterProvider } from './contexts/FilterContext';
+import { CompanyProvider } from './contexts/CompanyContext';
+import { ClientProvider } from './contexts/ClientContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
-          <Route path="missions" element={<AdminMissions />} />
-          <Route path="recap" element={<AdminRecap />} />
-          <Route path="payouts" element={<AdminPayouts />} />
-          <Route path="contacts" element={<AdminContacts />} />
-          <Route path="persons/:id" element={<PersonDetails />} />
-          <Route path="settings" element={<div className="p-4">Settings Page (Coming Soon)</div>} />
-        </Route>
-        {/* Redirect root to admin */}
-        <Route path="/" element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <CompanyProvider>
+        <ClientProvider>
+          <FilterProvider>
+            <SidebarProvider>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Dashboard />} />
+                <Route path="missions" element={<Missions />} />
+                <Route path="missions/:id" element={<MissionDetail />} />
+                <Route path="clients" element={<Clients />} />
+                <Route path="consultants" element={<Consultants />} />
+                <Route path="apporteurs" element={<ApporteursDaffaires />} />
+                <Route path="charges" element={<Charges />} />
+                <Route path="parametres" element={<Settings />} />
+                <Route path="*" element={<NotFound />} />
+              </Route>
+            </Routes>
+          </SidebarProvider>
+        </FilterProvider>
+        </ClientProvider>
+      </CompanyProvider>
+    </ThemeProvider>
   );
 }
 

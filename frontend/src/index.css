@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@font-face {
+  font-family: 'DESIGNER';
+  src: url('/fonts/DESIGNER.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -6,71 +14,82 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
+    --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
+    --card: 0 0% 98%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 0 0% 100%;
-
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-
+    --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 217.2 91.2% 59.8%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 4px;
 
-    --success: 142.1 76.2% 36.3%;
-    --success-foreground: 0 0% 100%;
+    /* LUSTRAUTO Custom Variables - Light Theme (macOS style) */
+    --app-black: #ffffff;
+    --app-dark: #fafafa;
+    --app-border: #e8e8ed;
+    --app-hover: #f0f0f5;
+    --app-active: #e5e5ea;
+    --app-text-primary: #000000;
+    --app-text-secondary: #1d1d1f;
+    --app-text-muted: #3c3c43;
+    --app-brand-blue: #154b7d;
 
-    --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 100%;
-
-    --radius: 0rem;
+    /* Status colors */
+    --status-success: #10b981;
+    --status-warning: #f59e0b;
+    --status-error: #ef4444;
+    --status-info: #60a5fa;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 0%;           /* #000000 - app-black */
+    --foreground: 0 0% 100%;         /* #ffffff - app-text-primary */
+    --card: 0 0% 4%;                 /* #0a0a0a - app-dark */
+    --card-foreground: 0 0% 100%;    /* #ffffff - app-text-primary */
+    --popover: 0 0% 4%;              /* #0a0a0a - app-dark */
+    --popover-foreground: 0 0% 100%; /* #ffffff - app-text-primary */
+    --primary: 0 0% 17%;             /* #2c2c2c - app-border */
+    --primary-foreground: 0 0% 100%; /* #ffffff - app-text-primary */
+    --secondary: 0 0% 4%;            /* #0a0a0a - app-dark */
+    --secondary-foreground: 0 0% 66%;/* #a8a8ad - app-text-secondary */
+    --muted: 0 0% 4%;                /* #0a0a0a - app-dark */
+    --muted-foreground: 0 0% 58%;    /* #909095 - app-text-muted */
+    --accent: 0 0% 17%;              /* #2c2c2c - app-border */
+    --accent-foreground: 0 0% 100%;  /* #ffffff - app-text-primary */
+    --destructive: 0 85% 60%;        /* #ef4444 - status-error */
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 17%;              /* #2c2c2c - app-border */
+    --input: 0 0% 4%;                /* #0a0a0a - app-dark */
+    --ring: 0 0% 24%;                /* #3c3c3c - app-hover */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* LUSTRAUTO Custom Variables - Aligned with tailwind.config.js */
+    --app-black: #000000;
+    --app-dark: #0a0a0a;
+    --app-border: #2c2c2c;
+    --app-hover: #3c3c3c;
+    --app-active: #4c4c4c;
+    --app-text-primary: #ffffff;
+    --app-text-secondary: #a8a8ad;
+    --app-text-muted: #909095;
+    --app-brand-blue: #154b7d;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    /* Status colors */
+    --status-success: #10b981;
+    --status-warning: #f59e0b;
+    --status-error: #ef4444;
+    --status-info: #60a5fa;
   }
 }
 
@@ -79,31 +98,130 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground;
   }
 }
 
-/* Custom Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@layer components {
+  .btn {
+    @apply px-4 py-2 font-medium transition-colors;
+  }
+  .btn-primary {
+    @apply bg-app-border text-app-text-primary hover:bg-app-hover;
+  }
+  .btn-secondary {
+    @apply bg-app-dark text-app-text-secondary hover:bg-app-border;
+  }
+  .input {
+    @apply px-3 py-2 border border-app-border focus:outline-none focus:ring-2 focus:ring-app-hover focus:border-transparent;
+  }
+  .label {
+    @apply block text-sm font-medium text-app-text-muted mb-1;
+  }
 }
 
-@keyframes slideInFromBottom {
-  from { transform: translateY(10px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+/* Scrollbars pour toute l'application */
+
+/* Pour les navigateurs webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
 }
 
-.animate-in {
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
+::-webkit-scrollbar-track {
+  background: var(--app-dark);
 }
 
-.fade-in {
-  animation-name: fadeIn;
+::-webkit-scrollbar-thumb {
+  background: var(--app-border);
+  border: 2px solid var(--app-dark);
 }
 
-.slide-in-from-bottom-4 {
-  animation-name: slideInFromBottom;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--app-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--app-active);
+}
+
+/* Pour Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--app-border) var(--app-dark);
+}
+
+/* Scrollbar plus fine pour les tableaux */
+.overflow-x-auto::-webkit-scrollbar,
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb,
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: var(--app-border);
+  border: 1px solid var(--app-dark);
+}
+
+/* Scrollbar invisible au repos, visible au hover (optionnel) */
+.scrollbar-hover::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.scrollbar-hover:hover::-webkit-scrollbar-thumb {
+  background: var(--app-border);
+}
+
+.scrollbar-hover:hover::-webkit-scrollbar-thumb:hover {
+  background: var(--app-hover);
+}
+
+/* Theme-aware select dropdowns - Force custom styling on macOS */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select option {
+  background-color: var(--app-dark);
+  color: var(--app-text-primary);
+}
+
+/* Theme-aware date and time inputs */
+.dark select,
+.dark input[type="date"],
+.dark input[type="time"],
+.dark input[type="datetime-local"] {
+  color-scheme: dark;
+}
+
+:root select,
+:root input[type="date"],
+:root input[type="time"],
+:root input[type="datetime-local"] {
+  color-scheme: light;
+}
+
+/* Prevent text selection/highlight in shadcn Select dropdowns */
+[role="option"],
+[data-radix-select-viewport],
+[data-radix-collection-item] {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Hide number input spinners (arrows) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }

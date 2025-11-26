@@ -1,0 +1,23 @@
+28,32c28,33
+<   static calculateURSSAF(
+<     startDate: Date,
+<     endDate: Date,
+<     invoices: Invoice[]
+<   ): URSSAFCalculation {
+---
+>   static calculateURSSAF(
+>     startDate: Date,
+>     endDate: Date,
+>     invoices: Invoice[],
+>     urssafRate: number = URSSAF_RATES.SERVICES_BIC // Use configured rate or default
+>   ): URSSAFCalculation {
+67,68c68,69
+<     // Calculate contributions based on rates
+<     const cotisationsServices = totalServices * URSSAF_RATES.SERVICES_BIC;
+---
+>     // Calculate contributions based on configured rate
+>     const cotisationsServices = totalServices * (urssafRate / 100);
+85c86
+<         services: URSSAF_RATES.SERVICES_BIC,
+---
+>         services: urssafRate / 100,
